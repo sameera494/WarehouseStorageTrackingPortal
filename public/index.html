@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Storage Tracking Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- ADD RECORD FORM -->
+    <div class="form-section">
+      <h2>Add Record</h2>
+      
+      <form id="addRecordForm">
+        <div class="form-group">
+          <label for="itemName">Item/Product Name</label>
+          <input type="text" id="itemName" name="itemName" placeholder="Enter item name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="itemCode">Item Code / SKU</label>
+          <input type="text" id="itemCode" name="itemCode" placeholder="e.g., A301" required>
+        </div>
+
+        <div class="form-group">
+          <label for="supplierPhone">Supplier Contact Number</label>
+          <input type="tel" id="supplierPhone" name="supplierPhone" placeholder="9876543210" required>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Warehouse Zone / Rack Location</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Zone A, Rack 5" required>
+        </div>
+
+        <div class="form-group">
+          <label for="entryDate">Stock Entry Date</label>
+          <input type="date" id="entryDate" name="entryDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="issue">Issue Or Need</label>
+          <input type="text" id="issue" name="issue" placeholder="e.g., Damaged, Restock needed">
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priority/Status</label>
+          <select id="priority" name="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="remarks">Remarks</label>
+          <textarea id="remarks" name="remarks" placeholder="Additional remarks"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="photoCaption">Photo/Evidence Caption</label>
+          <input type="text" id="photoCaption" name="photoCaption" placeholder="Describe the photo evidence">
+        </div>
+
+        <div class="form-group">
+          <label for="supplierName">Supplier Name</label>
+          <input type="text" id="supplierName" name="supplierName" placeholder="Supplier name">
+        </div>
+
+        <div class="form-group">
+          <label for="batchNumber">Batch / Lot Number</label>
+          <input type="text" id="batchNumber" name="batchNumber" placeholder="e.g., B2024001" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Product Category</label>
+          <input type="text" id="category" name="category" placeholder="e.g., Electronics, Furniture" required>
+        </div>
+
+        <div class="form-group">
+          <label for="stockStatus">Stock Status</label>
+          <select id="stockStatus" name="stockStatus">
+            <option value="In Stock">In Stock</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="restockingNeed">Restocking Need</label>
+          <input type="text" id="restockingNeed" name="restockingNeed" placeholder="Quantity needed">
+        </div>
+
+        <div class="form-group">
+          <label for="followUp">Follow-Up Action</label>
+          <input type="text" id="followUp" name="followUp" placeholder="Planned action">
+        </div>
+
+        <button type="submit" class="btn-save">Save Record</button>
+        <p class="api-status">Connected to backend API</p>
+      </form>
+    </div>
+
+    <!-- DASHBOARD SECTION -->
+    <div class="dashboard-section">
+      <h2>Warehouse Storage Tracking Dashboard</h2>
+      
+      <div class="tech-stack">
+        <span>Frontend: HTML5, CSS3, JavaScript</span>
+        <span>Backend: Node.js with Express.js</span>
+        <span>Database: JSON file fallback</span>
+        <span>OS: Windows 10/11 or Ubuntu 22.04 LTS</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number" id="totalCount">0</div>
+          <div class="stat-label">Total</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="inStockCount">0</div>
+          <div class="stat-label">In Stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="outOfStockCount">0</div>
+          <div class="stat-label">Out of Stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="todayCount">0</div>
+          <div class="stat-label">Today</div>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <input type="text" id="searchBox" placeholder="Search records...">
+        <button onclick="refreshRecords()" class="btn-refresh">Refresh</button>
+        <button onclick="printReport()" class="btn-print">Print Report</button>
+      </div>
+
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>ITEM NAME</th>
+            <th>ITEM CODE</th>
+            <th>LOCATION</th>
+            <th>ENTRY DATE</th>
+            <th>DETAILS</th>
+            <th>STATUS</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Records will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

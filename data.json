@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1781612278971,
+    "itemName": "test item",
+    "itemCode": "TEST123",
+    "supplierPhone": "1234567890",
+    "location": "Zone A",
+    "entryDate": "2026-06-15",
+    "issue": "",
+    "priority": "Low",
+    "remarks": "",
+    "photoCaption": "",
+    "supplierName": "",
+    "batchNumber": "B001",
+    "category": "test",
+    "stockStatus": "In Stock",
+    "restockingNeed": "",
+    "followUp": "",
+    "createdAt": "2026-06-16T12:17:58.971Z"
+  },
+  {
+    "id": 1781612672737,
+    "itemName": "UPS Battery ",
+    "itemCode": "UP009",
+    "supplierPhone": "9977567341",
+    "location": "Zone F",
+    "entryDate": "2025-06-14",
+    "issue": "",
+    "priority": "Low",
+    "remarks": "",
+    "photoCaption": "",
+    "supplierName": "",
+    "batchNumber": "BAT-2025-009",
+    "category": "electronics",
+    "stockStatus": "Out of Stock",
+    "restockingNeed": "0",
+    "followUp": "",
+    "createdAt": "2026-06-16T12:24:32.737Z"
+  }
+]
